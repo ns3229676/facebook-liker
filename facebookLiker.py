@@ -20,13 +20,13 @@ time.sleep(1)
 # element.clear(); 
 
 driver.find_element(By.ID, "email").click()
-driver.find_element(By.ID, "email").send_keys('nitinsaxena1819@gmail.com')
+driver.find_element(By.ID, "email").send_keys()
 
 
 time.sleep(1)
 
 driver.find_element(By.ID, "pass").click()
-driver.find_element(By.ID, "pass").send_keys('7078990406n')
+driver.find_element(By.ID, "pass").send_keys('')
 
 time.sleep(1)
 
