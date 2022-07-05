@@ -17,6 +17,7 @@ opt=Options()
 opt.add_experimental_option('detach',True)
 opt.add_argument("--disable-notifications")
 url = 'https://www.facebook.com/jncxindia'
+# url = 'https://www.facebook.com'
 
 def Connecting_To_Browser(id_str, pass_str):
     if id_str != "" and pass_str != "":
@@ -24,29 +25,40 @@ def Connecting_To_Browser(id_str, pass_str):
         driver = webdriver.Chrome('chromedriver.exe',options=opt)
         try:
             driver.get(url)
-            time.sleep(1)
+            time.sleep(4)
 
-            driver.find_element(By.ID, "login_form").click()
+            # driver.find_element(By.TAG_NAME,"a").click()
 
-            time.sleep(2)
+            # driver.find_element(By.ID,"login_form").click()
 
-            driver.find_element(By.ID, "email").click()
-            driver.find_element(By.ID, "email").send_keys(id_str)
+            # time.sleep(2)
+
+            # driver.find_element(By.ID, "email").click()
+            # driver.find_element(By.ID, "email").send_keys(id_str)
+
+            driver.find_element(By.CSS_SELECTOR, '[name="email"]').click()
+            driver.find_element(By.CSS_SELECTOR, '[name="email"]').send_keys(id_str)
+            
 
 
             time.sleep(1) 
 
            
 
-            driver.find_element(By.ID, "pass").click()
-            driver.find_element(By.ID, "pass").send_keys(pass_str)
+            # driver.find_element(By.ID, "pass").click()
+            # driver.find_element(By.ID, "pass").send_keys(pass_str)
+
+            driver.find_element(By.CSS_SELECTOR, '[name="pass"]').click()
+            driver.find_element(By.CSS_SELECTOR, '[name="pass"]').send_keys(pass_str)
 
             time.sleep(1)
 
-            driver.find_element(By.TAG_NAME, "button").click()
-            driver.find_element(By.CSS_SELECTOR, '[name="login"]').click()
+            # driver.find_element(By.TAG_NAME, "button").click()
+            driver.find_element(By.CSS_SELECTOR, '[aria-label="Accessible login button"]').click()
 
-            time.sleep(2)
+            
+
+            time.sleep(5)
 
                # driver.quit()
         except:
